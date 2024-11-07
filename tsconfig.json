@@ -16,13 +16,12 @@
     "strict": true,
     "useUnknownInCatchVariables": false,
     "paths": {
-      "@auth/*": ["src/auth/*"],
-      "@models/*": ["src/models/*"],
-      "@common/*": ["src/common/*"],
-      "@users/*": ["src/users/*"],
-      "@cache/*": ["src/cache/*"]
+      "@categories/*": ["src/categories/*"],
+      "@meals/*": ["src/meals/*"],
+      "@orders/*": ["src/orders/*"],
+      "@config/*": ["src/config/*"],
     }
   },
-  "include": ["src", "migrations", "knexfile.ts"],
+  "include": ["src"],
   "exclude": ["node_modules", "dist", "tmp"]
 }

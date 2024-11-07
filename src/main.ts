@@ -6,7 +6,7 @@ dotenv.config();
 import { ConfigService } from 'nestjs-config';
 import { swaggerSetup } from './swagger-setup';
 import { AppModule } from './app.module';
-import { ConfigNames } from './config/config-names.enum';
+import { ConfigNames } from '@config/config-names.enum';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
