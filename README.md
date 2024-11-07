@@ -37,7 +37,7 @@ Your system should support:
   - A `total price` field (sum of the meal prices in that order).
 
 - **Categories**
-  - The restaurant offers four main categories:
+  - The restaurant offers two main categories:
     - `ramen`
     - `sushi`
 
@@ -56,8 +56,10 @@ Your system should support:
 #### 1. **API Endpoints**
 
 Endpoints should allow:
-- **Placing an order**: Accept a list of meals, including quantity, and calculate the total price.
-- **Updating order status** as it moves from one stage to the next.
+- **Retrieving available categories**
+- **Retrieving available meals**: use query params to filter meals by category
+- **Placing an order**: accept a list of meals, including quantity, and calculate the total price.
+- **Retrieving orders**: use query params to filter orders by status
 - **Retrieving order details** by a specific order ID.
 
 #### 2. **Queue Management with Bull**
