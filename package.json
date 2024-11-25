@@ -15,6 +15,7 @@
     "start:dev": "env NODE_ENV=development nest start --watch",
     "start:debug": "env nest start --debug",
     "start:prod": "env node dist/src/main",
+    "test": "jest",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -28,7 +29,7 @@
     "@nestjs/schedule": "^3.0.1",
     "@nestjs/swagger": "^7.1.2",
     "app-root-path": "^3.0.0",
-    "bullmq": "^5.25.1",
+    "bullmq": "^5.29.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "dotenv": "^14.1.0",
@@ -74,6 +75,9 @@
     "typescript": "^4.8.2"
   },
   "jest": {
+    "moduleNameMapper": {
+      "^@ddd/(.*)$": "<rootDir>/ddd/$1"
+    },
     "moduleFileExtensions": [
       "js",
       "json",

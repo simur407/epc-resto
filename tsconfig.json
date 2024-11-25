@@ -17,8 +17,9 @@
     "useUnknownInCatchVariables": false,
     "paths": {
       "@categories/*": ["src/categories/*"],
-      "@meals/*": ["src/meals/*"],
-      "@orders/*": ["src/orders/*"],
+      "@ddd/*": ["src/ddd/*"],
+      "@menu-management/*": ["src/menu-management/*"],
+      "@order-management/*": ["src/order-management/*"],
       "@config/*": ["src/config/*"],
     }
   },
