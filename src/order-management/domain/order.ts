@@ -3,6 +3,7 @@ import { randomUUID } from 'crypto';
 import { ValidationError } from '@ddd/validation.error';
 import { BusinessRuleViolation } from '@ddd/business-rule-violation.error';
 import { Item, ItemState } from './item';
+import { OrderDto } from '../order-management.service';
 
 export class OrderId {
   constructor(private readonly value: string) {}
@@ -17,6 +18,10 @@ export class OrderId {
     }
     // `isUUID` validates if unknown is a string, so this is safe
     return new OrderId(value as string);
+  }
+
+  equals(other: OrderId): boolean {
+    return this.value === other.value;
   }
 
   toString(): string {
@@ -70,6 +75,7 @@ export type OrderStatus =
 export type OrderState = {
   id: OrderId;
   status: OrderStatus;
+  items: ItemState[];
 };
 
 export class Order {
@@ -87,16 +93,13 @@ export class Order {
       throw new BusinessRuleViolation('Order has to have at least one item');
     }
 
+    const itemStates = items.map((i) => i.toObject());
     const order = new Order({
       id,
       status: 'placed',
+      items: itemStates,
     });
-    order.events.push(
-      new OrderPlaced(
-        id.toString(),
-        items.map((i) => i.toObject()),
-      ),
-    );
+    order.events.push(new OrderPlaced(id.toString(), itemStates));
     return order;
   }
 
@@ -146,6 +149,11 @@ export class Order {
 }
 
 export abstract class OrderRepository {
-  abstract load(id: OrderId): Promise<Order>;
+  abstract load(id: OrderId): Promise<Order | null>;
   abstract save(order: Order): Promise<void>;
+}
+
+export abstract class OrderQueryRepository {
+  abstract getOrder(id: string): Promise<OrderDto | null>;
+  abstract findOrders(filters: { status?: OrderStatus }): Promise<OrderDto[]>;
 }

@@ -17,6 +17,10 @@ export class ItemId {
     return new ItemId(value as string);
   }
 
+  equals(other: ItemId): boolean {
+    return this.value === other.value;
+  }
+
   toString(): string {
     return this.value;
   }
