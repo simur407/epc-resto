@@ -17,6 +17,7 @@
     "useUnknownInCatchVariables": false,
     "paths": {
       "@ddd/*": ["src/ddd/*"],
+      "@job-trigger/*": ["src/job-trigger/*"],
       "@menu-management/*": ["src/menu-management/*"],
       "@order-management/*": ["src/order-management/*"],
       "@config/*": ["src/config/*"],

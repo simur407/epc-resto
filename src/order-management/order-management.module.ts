@@ -7,7 +7,7 @@ import {
 } from './domain/order';
 import { InMemoryOrderQueryRepository } from './infrastructure/in-memory-order.query-repository';
 import { InMemoryOrderRepository } from './infrastructure/in-memory-order.repository';
-import { OrdersProcessor } from './orders.processor';
+import { OrdersConsumer } from './orders.consumer';
 import { MenuManagementModule } from '@menu-management/menu-management.module';
 import { OrderManagementService } from './order-management.service';
 import { OrdersController } from './infrastructure/api/orders.controller';
@@ -31,7 +31,7 @@ export class OrderManagementModule {
           provide: OrderQueryRepository,
           useFactory: () => new InMemoryOrderQueryRepository(config.db),
         },
-        OrdersProcessor,
+        OrdersConsumer,
         OrderManagementService,
       ],
       exports: [OrderManagementService],
