@@ -3,8 +3,7 @@ import { resolve } from 'path';
 import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bullmq';
 import { OrderManagementModule } from '@order-management/order-management.module';
-import { MealsModule } from '@menu-management/meals.module';
-import { CategoriesModule } from '@categories/categories.module';
+import { MenuManagementModule } from '@menu-management/menu-management.module';
 import { ConfigNames } from '@config/config-names.enum';
 
 @Module({
@@ -22,8 +21,7 @@ import { ConfigNames } from '@config/config-names.enum';
       inject: [ConfigService],
     }),
     OrderManagementModule.forRoot({ db: [] }),
-    MealsModule,
-    CategoriesModule,
+    MenuManagementModule,
   ],
 })
 export class AppModule {}

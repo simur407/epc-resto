@@ -8,13 +8,8 @@ import {
   OrderPrepared,
   OrderRepository,
   OrderState,
-} from '@order-management/domain/order';
-
-export class OrderNotFoundError extends Error {
-  constructor() {
-    super('Order not found');
-  }
-}
+} from '../domain/order';
+import { OrderNotFoundError } from '../order-not-found.error';
 
 export class InMemoryOrderRepository extends OrderRepository {
   constructor(private items: OrderState[]) {

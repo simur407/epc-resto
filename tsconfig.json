@@ -16,7 +16,6 @@
     "strict": true,
     "useUnknownInCatchVariables": false,
     "paths": {
-      "@categories/*": ["src/categories/*"],
       "@ddd/*": ["src/ddd/*"],
       "@menu-management/*": ["src/menu-management/*"],
       "@order-management/*": ["src/order-management/*"],
